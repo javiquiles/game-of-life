@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    text-align: center;
+    margin-top: 30px;
+}
+
+section {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+td {
+    border: black 1px solid;
+    padding: 20px;
+    text-align: center;
+}
+
+.vivo {
+    background-color: #489CDF;
+}

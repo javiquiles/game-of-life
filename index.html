@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=|, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script type="text/javascript" src="./js/functions.js"></script>
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>GameOfLife</title>
+    </head>
+    <body>
+        <header>
+            <h1>Game Of Life</h1>
+        </header>
+        <section>
+            <table>
+                <script type="text/javascript">
+                    for (var x = 0; x < 10; x++) {
+                        document.write("<tr id='row'>");
+                        for (var y = 0; y < 10; y++) {
+                            document.write("<td class='' onclick='cambiarCelda(this)'></td>");
+                        }
+                        document.write("</tr>");
+                    }
+                </script>
+            </table>
+        </section>
+    </body>
+</html>
