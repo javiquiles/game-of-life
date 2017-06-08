@@ -15,15 +15,12 @@
         <section>
             <table>
                 <script type="text/javascript">
-                    for (var x = 0; x < 10; x++) {
-                        document.write("<tr id='row'>");
-                        for (var y = 0; y < 10; y++) {
-                            document.write("<td class='' onclick='cambiarCelda(this)'></td>");
-                        }
-                        document.write("</tr>");
-                    }
+                    createTable();
                 </script>
             </table>
+            <button type="button" id="btn_next" name="button" onclick="sgtePaso()">
+                Next Step
+            </button>
         </section>
     </body>
 </html>

@@ -27,3 +27,8 @@ td {
 .vivo {
     background-color: #489CDF;
 }
+
+#btn_next {
+    padding: 10px;
+    margin-top: 20px;
+}
