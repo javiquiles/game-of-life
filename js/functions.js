@@ -1,7 +1,7 @@
-var listado, estados, activos, cuenta = 0
+var celdas, estados, activos, interval, cuenta = 0
 var dim = {
-  ancho: 10,
-  alto: 10
+    ancho: 10,
+    alto: 10
 };
 
 function createTable() {
@@ -13,13 +13,13 @@ function createTable() {
 
         for (var y = 0; y < dim.ancho; y++) {
             estados[x][y] = false;
-            document.write("<td class='' onclick='cambiarCelda(this)'></td>");
+            document.write("<td class='' onclick='changeCell(this)'></td>");
         }
         document.write("</tr>");
     }
 }
 
-function cambiarCelda(celda) {
+function changeCell(celda) {
     if (celda.className == '') {
         celda.className = 'viva'
     }
@@ -28,9 +28,19 @@ function cambiarCelda(celda) {
     }
 }
 
+function autoPlay() {
+    /* Llamo a la funcion nextStep cada 1 segundo */
+    interval = setInterval(nextStep, 500);
+
+    /*
+    interval = setInterval(function () {
+        nextStep();
+    }, 1000);
+    */
+}
+
 function nextStep() {
-    listado = document.getElementsByTagName('td'); //Array de 100 celdas.
-    console.log(listado[3]);
+    celdas = document.getElementsByTagName('td'); //Array de 100 celdas.
 
     var i, j, bool;
 
@@ -39,7 +49,7 @@ function nextStep() {
     for (i = 0; i < dim.alto; i++) {
         for (j = 0; j < dim.ancho; j++) {
             /* Comprobamos los estados de todas las celdas */
-            bool = (listado[dim.ancho * i + j].className == 'viva');
+            bool = (celdas[dim.ancho * i + j].className == 'viva');
             estados[i][j] = bool;
 
             if (bool) activos++;
@@ -47,7 +57,11 @@ function nextStep() {
     }
 
     if (activos == 0) {
-        console.log('No hay mas celdas vivas');
+        clearInterval(interval);
+        console.log("No hay mas celdas vivas");
+    }
+    else {
+        console.log("Celdas vivas");
     }
 
     var n, k, row, col,
@@ -59,7 +73,7 @@ function nextStep() {
         for (j = 0; j < dim.ancho; j++) { //0 a 10
             n = 0;
 
-            console.log("td nro: " + i + j)
+            //console.log("td nro: " + i + j)
             for (k = 0; k < r.length; k++) { //0 a 8
                 row = i + r[k][0];
                 col = j + r[k][1];
@@ -69,11 +83,11 @@ function nextStep() {
                 if (row == 10) row = 0;
                 if (col == 10) col = 0;
 
-                console.log(row);
-                console.log(col);
+                //console.log(row);
+                //console.log(col);
 
-                if(row < 0 || col < 0 || row == dim.alto || col == dim.ancho)
-                    continue;
+                /*if(row < 0 || col < 0 || row == dim.alto || col == dim.ancho)
+                    continue;*/
 
                 if(estados[row][col])
                     n++;
@@ -82,11 +96,11 @@ function nextStep() {
 
             // Reglas del juego
             if (!bool && n == 3)
-                listado[dim.ancho * i + j].className = 'viva';
+                celdas[dim.ancho * i + j].className = 'viva';
             else if (bool && (n == 3 || n == 2))
-                listado[dim.ancho * i + j].className = 'viva';
+                celdas[dim.ancho * i + j].className = 'viva';
             else
-                listado[dim.ancho * i + j].className = '';
+                celdas[dim.ancho * i + j].className = '';
         }
     }
 }
