@@ -21,22 +21,26 @@ function createTable() {
 
 function changeCell(celda) {
     if (celda.className == '') {
-        celda.className = 'viva'
+        celda.className = 'viva';
     }
     else {
-        celda.className = ''
+        celda.className = '';
     }
 }
 
 function autoPlay() {
-    /* Llamo a la funcion nextStep cada 1 segundo */
-    interval = setInterval(nextStep, 500);
+    var icon = document.getElementById("icon_play");
 
-    /*
-    interval = setInterval(function () {
-        nextStep();
-    }, 1000);
-    */
+    if (icon.className == "glyphicon glyphicon-play") {
+        /* Llamo a la funcion nextStep cada 1 segundo */
+        interval = setInterval(nextStep, 500);
+        icon.className = "glyphicon glyphicon-pause";
+    }
+    else {
+        /* Cortamos el ciclo de la funcion setInterval */
+        clearInterval(interval);
+        icon.className = "glyphicon glyphicon-play";
+    }
 }
 
 function nextStep() {
@@ -58,6 +62,7 @@ function nextStep() {
 
     if (activos == 0) {
         clearInterval(interval);
+        document.getElementById("icon_play").className = "glyphicon glyphicon-play";
         console.log("No hay mas celdas vivas");
     }
     else {
@@ -73,7 +78,6 @@ function nextStep() {
         for (j = 0; j < dim.ancho; j++) { //0 a 10
             n = 0;
 
-            //console.log("td nro: " + i + j)
             for (k = 0; k < r.length; k++) { //0 a 8
                 row = i + r[k][0];
                 col = j + r[k][1];
@@ -83,13 +87,7 @@ function nextStep() {
                 if (row == 10) row = 0;
                 if (col == 10) col = 0;
 
-                //console.log(row);
-                //console.log(col);
-
-                /*if(row < 0 || col < 0 || row == dim.alto || col == dim.ancho)
-                    continue;*/
-
-                if(estados[row][col])
+                if (estados[row][col])
                     n++;
             }
             bool = estados[i][j];

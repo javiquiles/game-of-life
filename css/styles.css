@@ -8,8 +8,21 @@ body {
     margin-top: 30px;
 }
 
+h1 {
+    font-size: 45px;
+    font-family: 'Lobster';
+    font-weight: 400;
+}
+
 section {
     text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 15px;
+    background-color: white;
+    width: 100%;
 }
 
 table {
@@ -24,16 +37,48 @@ td {
     text-align: center;
 }
 
+button {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: blue;
+}
+
 .viva {
     background-color: #489CDF;
 }
 
-#btn_next {
-    padding: 10px;
-    margin-top: 20px;
+@font-face {
+    font-family: 'Glyphicons Halflings';
+
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-#btn_auto {
-    padding: 10px;
-    margin-top: 20px;
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    color: #444;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-play:before {
+    content: "\e072";
+}
+
+.glyphicon-fast-forward:before {
+    content: "\e076";
+}
+
+.glyphicon-pause:before {
+    content: "\e073";
 }

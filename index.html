@@ -2,10 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=|, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script type="text/javascript" src="./js/functions.js"></script>
-        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <title>GameOfLife</title>
     </head>
     <body>
@@ -18,12 +19,20 @@
                     createTable();
                 </script>
             </table>
-            <button type="button" id="btn_next" name="button" onclick="nextStep()">
-                Next Step
+            <button type="button" id="btn_auto" name="button" onclick="autoPlay(this)">
+                <span id="icon_play" class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                Play
             </button>
-            <button type="button" id="btn_auto" name="button" onclick="autoPlay()">
-                Auto Play
+            <button type="button" id="btn_next" name="button" onclick="nextStep()">
+                <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+                Next
             </button>
         </section>
+        <footer>
+            <small>
+                Más información sobre el juego -
+                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Conway's Game of Life</a>
+            </small>
+        </footer>
     </body>
 </html>
